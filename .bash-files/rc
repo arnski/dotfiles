@@ -1,0 +1,4 @@
+. ~/.general-shell-files/aliases
+. ~/.bash-files/history
+. ~/.bash-files/prompt
+. ~/.bash-files/xdebug_phpstorm
