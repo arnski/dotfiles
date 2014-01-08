@@ -1,0 +1,23 @@
+# HISTORY SETTINGS
+# ################
+
+# don't put duplicate lines in the history. See bash(1) for more options
+export HISTCONTROL=ignoredups
+
+# ... and ignore same sucessive entries.
+export HISTCONTROL=ignoreboth
+
+# Increase Historysize
+export HISTSIZE=10000
+ 
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# Ensure history is appended to .bash_history
+shopt -s histappend
+
+# History- Search by pressing up or down
+bind '"\e[A"':history-search-backward
+bind '"\e[B"':history-search-forward
+
