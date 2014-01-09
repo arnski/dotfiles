@@ -1,0 +1,4 @@
+defaults write com.apple.dock autohide-delay -float 0 && killall Dock
+defaults write com.apple.dock expose-animation-duration -float 0.12 && killall Dock
+defaults write com.apple.dock showhidden -bool YES && killall Dock
+defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder
