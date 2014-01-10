@@ -13,6 +13,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-alias ls="ls -al"
-alias l="ls -al"
+alias ls="ls -alG"
+alias l="ls -alG"
 
