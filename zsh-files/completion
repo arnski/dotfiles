@@ -1,10 +1,14 @@
 # Complete within words, not just at either end.
 setopt complete_in_word
 
-# Complete from left or right, case-insensitively
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# Activate "autojump", see http://github.com/joelthelion/autojump
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
+export PATH="$PATH:$HOME/.autojump/bin"
 
 # Per-app completions
 fpath=(~/.zsh/completion.d $fpath)
 autoload -Uz compinit
 compinit -u
+
+# Complete from left or right, case-insensitively
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
