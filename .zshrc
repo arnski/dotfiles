@@ -1,1 +1,1 @@
-. ~/.zsh-files/rc
+. ~/dotfiles/zsh-files/rc
