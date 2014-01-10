@@ -1,14 +1,15 @@
-. ~/dotfiles/general-shell-files/aliases # shell aliases
-. ~/dotfiles/zsh-files/prompt # prompt config
-. ~/dotfiles/zsh-files/options # zsh options
-. ~/dotfiles/zsh-files/completion # tab completion config
-. ~/dotfiles/zsh-files/git # git aliases
+. ~/dotfiles/general-shell-files/aliases                # shell aliases
+. ~/dotfiles/general-shell-files/shell-script-functions # self-defined shell functions
+. ~/dotfiles/zsh-files/prompt                           # prompt config
+. ~/dotfiles/zsh-files/options                          # zsh options
+. ~/dotfiles/zsh-files/completion                       # tab completion config
+. ~/dotfiles/zsh-files/git                              # git aliases
 
 # Env vars
 if [ $(uname -s) = 'Darwin' ]; then
   export LANG="de_DE.UTF-8"
   export EDITOR='vim'
-  export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin"
+  export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin"
   export MANPATH="/usr/local/share/man:/usr/X11/man:/usr/share/man"
 else
   export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"

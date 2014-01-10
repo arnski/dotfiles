@@ -1,4 +1,5 @@
 . ~/dotfiles/general-shell-files/aliases
+. ~/dotfiles/general-shell-files/shell-script-functions # self-defined shell functions
 . ~/dotfiles/bash-files/history
 . ~/dotfiles/bash-files/prompt
 . ~/dotfiles/bash-files/xdebug_phpstorm
