@@ -1,16 +1,15 @@
 # Shell history
 #########################################
-HISTFILE=~/.bash_history # Use same as bash, so share one history while transitioning
+HISTFILE=$HOME/.bash_history      # Use same as bash, so share one history while transitioning
 HISTSIZE=1000000
-SAVEHIST=900000 # This value is smaller than HISTSIZE to allow a window for dupes.
-setopt append_history # Append to the history file rather than replacing it.
-setopt inc_append_history # Write history items as they are run, not on shell exit.
-setopt hist_expire_dups_first # Expire duplicate history items before older unique ones.
-setopt hist_ignore_dups # Don't save consecutive duplicate history items.
+SAVEHIST=900000               # This value is smaller than HISTSIZE to allow a window for dupes.
+setopt APPEND_HISTORY         # Append to the history file rather than replacing it.
+setopt INC_APPEND_HISTORY     # Write history items as they are run, not on shell exit.
+setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate history items before older unique ones.
+setopt HIST_IGNORE_DUPS       # Don't save consecutive duplicate history items.
+setopt HIST_IGNORE_SPACE      # Pssssst. Remove command lines from the history list when the first character on the line is a space.
 
-# The following lines result in this: Starting to type a command and then press 'arrow-up' will search back in history
-# for lines with the same beginnung. Pressing 'arrow-up' on an empty line will go back in history and leave the cursor at 
-# the end of the line.
+# The following lines result in this: Starting to type a command and then press 'arrow-up' will search back in history for lines with the same beginnung. Pressing 'arrow-up' on an empty line will go back in history and leave the cursor at the end of the line.
 autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -20,9 +19,14 @@ bindkey '\e[A' up-line-or-beginning-search
 bindkey '\eOB' down-line-or-beginning-search
 bindkey '\e[B' down-line-or-beginning-search
 
+
 # Misc zsh config
-setopt notify # Print background job status immediately.
-unsetopt auto_cd # Don't "execute" directories by changing into them.
+#########################################
+setopt NOTIFY        # Print background job status immediately. 
+setopt CASE_GLOB     # Case-sensitive globbing
+setopt GLOB_DOTS     # Do not require a leading ‘.’ in a filename to be matched explicitly.
+unsetopt AUTO_CD     # Don't "execute" directories by changing into them. Set if you want this: Type ".." instead of "cd ..", "/usr/include" instead of "cd /usr/include".
+
 
 # Move between (customised) words with option-left/right.
 export WORDCHARS='*?[]~=&;!#$%^(){}'
