@@ -1,1 +1,1 @@
-. ~/.bash-files/rc
+. ~/dotfiles/bash-files/rc

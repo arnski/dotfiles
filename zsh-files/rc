@@ -1,8 +1,8 @@
-. ~/.general-shell-files/aliases # shell aliases
-. ~/.zsh-files/prompt # prompt config
-. ~/.zsh-files/options # zsh options
-. ~/.zsh-files/completion # tab completion config
-. ~/.zsh-files/git # git aliases
+. ~/dotfiles/general-shell-files/aliases # shell aliases
+. ~/dotfiles/zsh-files/prompt # prompt config
+. ~/dotfiles/zsh-files/options # zsh options
+. ~/dotfiles/zsh-files/completion # tab completion config
+. ~/dotfiles/zsh-files/git # git aliases
 
 # Env vars
 if [ $(uname -s) = 'Darwin' ]; then
