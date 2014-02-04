@@ -1,0 +1,2 @@
+# Show all history-entries. When given a command like 'ls', show all history-entries starting with it.
+h() { if [ -z "$*" ]; then history; else history | egrep "$@"; fi; }
