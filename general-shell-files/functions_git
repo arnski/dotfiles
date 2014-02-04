@@ -1,0 +1,41 @@
+gupstation() {
+  gup
+  gf production
+  gf staging
+}
+
+gc() {
+  git diff --cached | grep '\btap[ph]\b' >/dev/null &&
+    echo "\e[0;31;29mOops, there's a #tapp or similar in that diff.\e[0m" ||
+    git commit -v "$@"
+}
+
+gca() {
+  (git diff; git diff --cached) | grep '\btap[ph]\b' >/dev/null &&
+    echo "\e[0;31;29mOops, there's a #tapp or similar in that diff.\e[0m" ||
+    git commit -v -a "$@"
+}
+
+git-new() {
+  [ -d "$1" ] || mkdir "$1" &&
+  cd "$1" &&
+  git init &&
+  touch .gitignore &&
+  git add .gitignore &&
+  git commit -m "Add .gitignore."
+}
+
+git_current_branch() {
+  cat "$(git rev-parse --git-dir 2>/dev/null)/HEAD" | sed -e 's/^.*refs\/heads\///'
+}
+
+gls() {
+  query="$1"
+  shift
+  glog --pickaxe-regex "-S$query" "$@"
+}
+
+s() {
+  git status -sb "$@"
+  return 0
+}
