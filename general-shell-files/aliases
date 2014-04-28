@@ -14,5 +14,5 @@ alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
 alias ls="ls -alG"
-alias l="ls -alG"
+alias ll="ls -alG"
 
