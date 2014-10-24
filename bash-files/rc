@@ -3,6 +3,7 @@
 . ~/dotfiles/general-shell-files/functions        # self-defined shell functions
 . ~/dotfiles/general-shell-files/functions_git    # self-defined shell functions in git context
 . ~/dotfiles/general-shell-files/xdebug_phpstorm  # ...
+. ~/dotfiles/general-shell-files/paths            # paths like mysql path
 
 . ~/dotfiles/bash-files/functions                 # bash-specific functions
 . ~/dotfiles/bash-files/history
