@@ -3,3 +3,8 @@ for f in ~/dotfiles/general-shell-files/*; do source $f; done
 . ~/dotfiles/bash-files/functions                 # bash-specific functions
 . ~/dotfiles/bash-files/history
 . ~/dotfiles/bash-files/prompt
+
+if [ $(uname -s) = 'Darwin' ]; then
+  . ~/dotfiles/osx-files/functions
+fi
+
