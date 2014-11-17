@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Toggle visibility of hidden files in Dock & Finder
+toggle_hidden(){
+
+  STATUS=$( defaults read com.apple.finder AppleShowAllFiles )
+  if [[ $STATUS == TRUE ]]; 
+  then
+      defaults write com.apple.finder AppleShowAllFiles NO && defaults write com.apple.dock showhidden -bool FALSE
+  else
+      defaults write com.apple.finder AppleShowAllFiles YES && defaults write com.apple.dock showhidden -bool YES
+  fi
+  killall Finder && killall Dock
+
+}
