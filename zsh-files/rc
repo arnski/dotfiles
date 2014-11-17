@@ -1,8 +1,4 @@
-. ~/dotfiles/general-shell-files/aliases        # shell aliases
-. ~/dotfiles/general-shell-files/aliases_git    # git aliases
-. ~/dotfiles/general-shell-files/functions      # self-defined shell functions
-. ~/dotfiles/general-shell-files/functions_git  # self-defined shell functions in git context
-. ~/dotfiles/general-shell-files/paths          # paths, like mysql binaries etc..
+for f in ~/dotfiles/general-shell-files/*; do source $f; done
 
 . ~/dotfiles/zsh-files/functions                # zsh-specific functions
 . ~/dotfiles/zsh-files/prompt                   # prompt config

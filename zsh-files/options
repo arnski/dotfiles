@@ -38,8 +38,13 @@ export WORDCHARS='*?[]~=&;!#$%^(){}'
 bindkey "\e\e[C"  forward-word
 bindkey "\e\e[D"  backward-word
 
+
 # Mimick bash behaviour while backward-deleting 'words' - meaning delete whole word *not* stopping at non-alphanumeric chars
 autoload -U select-word-style
 select-word-style shell
 
+
+# Jump to beginning or end of line
+bindkey "^A" beginning-of-line # ctrl-a
+bindkey "^E" end-of-line # ctrl-e
 
