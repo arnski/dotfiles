@@ -1,0 +1,19 @@
+### These defaults will be checked and on each shell-start
+
+## Screenshots
+
+ScreenshotFolder="${HOME}/Desktop/Screenshots"
+
+# Check if Screenshot-Folder exists
+if [ ! -d "$ScreenshotFolder" ]; then
+  mkdir -p "$ScreenshotFolder"
+fi
+
+# Set saving to the folder in osx-defaults
+if [ $(defaults read com.apple.screencapture location) != "$ScreenshotFolder" ]; then
+  defaults write com.apple.screencapture location -string "$ScreenshotFolder"
+  killall SystemUIServer
+fi
+
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
