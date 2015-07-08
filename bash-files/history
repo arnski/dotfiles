@@ -8,7 +8,7 @@ export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 
 # Increase Historysize
-export HISTSIZE=10000
+export HISTSIZE=100000
  
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -16,6 +16,9 @@ shopt -s checkwinsize
 
 # Ensure history is appended to .bash_history
 shopt -s histappend
+
+# Ensure writing to history after each execution && read new history (from other terminal windew)
+export PROMPT_COMMAND="history -a; history -n"
 
 # History- Search by pressing up or down
 bind '"\e[A"':history-search-backward
