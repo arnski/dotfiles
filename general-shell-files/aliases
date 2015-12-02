@@ -15,4 +15,7 @@ alias ......="cd ../../../../.."
 
 alias ls="ls -alG"
 alias ll="ls -alG"
+alias lt='ls -latr'
+
+alias g="grep"
 

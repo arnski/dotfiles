@@ -1,2 +1,6 @@
 # Show all history-entries. When given a command like 'ls', show all history-entries starting with it.
 h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
+
+function zsh_stats() {
+  history 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
+}

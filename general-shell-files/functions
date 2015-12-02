@@ -1,5 +1,5 @@
 # Functions
-# ######
+# #########
 
 function l {
   PASSED=$1
@@ -16,10 +16,6 @@ function tree {
   find ${1:-.} -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
 }
 
-function zsh_stats() {
-  history 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
-}
-
 # Check if command exists (hash is afaik a bash builtin, seems to work in zsh nonetheless)
 command_exists () {
     hash "$1" &> /dev/null ;
@@ -32,4 +28,21 @@ export DOCKER_TLS_VERIFY=1
 
 docker-ip() {
   boot2docker ip 2> /dev/null
+}
+
+# OSX: Find launchctl plist files
+launchctlFind () {
+    LaunchctlPATHS=( \
+        ~/Library/LaunchAgents \
+        /Library/LaunchAgents \
+        /Library/LaunchDaemons \
+        /System/Library/LaunchAgents \
+        /System/Library/LaunchDaemons \
+    )
+
+    for curPATH in "${LaunchctlPATHS[@]}"
+    do
+        grep -rl "$curPATH" -e "$1"
+    done
+    return 0;
 }
