@@ -1,6 +1,3 @@
-# Show all history-entries. When given a command like 'ls', show all history-entries starting with it.
-h() { if [ -z "$*" ]; then history; else history | egrep "$@"; fi; }
-
 # Show keybindings
 show-keybindings-all() { bind -p; }
 show-keybindings-with-control-key() { bind -p | grep -F "\C";}

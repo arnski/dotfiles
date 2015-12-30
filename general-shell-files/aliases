@@ -17,6 +17,8 @@ alias ls="ls -alGh"
 alias ll="ls -alGh"
 alias lt="ls -latrh"
 
+alias g="grep"
+
 alias mig="echo 'Available Aliases for Backups-Folder: mb, mbj, mbs, mbt';echo 'Available Aliases for Exports-Folder: me, mej, mes, met';"
 
 alias mb="ls -latr /backups/;echo 'Go there: mbj'; echo 'Go Subfolder: mbs SUBFOLDER_NAME;';"
