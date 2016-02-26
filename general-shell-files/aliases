@@ -13,9 +13,24 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-alias ls="ls -alG"
-alias ll="ls -alG"
-alias lt='ls -latr'
+alias ls="ls -alGh"
+alias ll="ls -alGh"
+alias lt="ls -latrh"
 
 alias g="grep"
 
+alias mig="echo 'Available Aliases for Backups-Folder: mb, mbj, mbs, mbt';echo 'Available Aliases for Exports-Folder: me, mej, mes, met';"
+
+alias mb="ls -latr /backups/;echo 'Go there: mbj'; echo 'Go Subfolder: mbs SUBFOLDER_NAME;';"
+alias mbj="cd /backups/"
+function mbs {
+  cd /backups/$1
+}
+alias mbt="ls -latr /backups/|tail"
+
+alias me="ls -latr /home/box/Development/export/delta-output/;echo 'Go there: mej'; echo 'Go Subfolder: mes SUBFOLDER_NAME;';"
+alias mej="cd /home/box/Development/export/delta-output/"
+function mes {
+  cd /home/box/Development/export/delta-output/$1
+}
+alias met="ls -latr /home/box/Development/export/delta-output/|tail"
