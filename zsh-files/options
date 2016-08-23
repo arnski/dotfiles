@@ -1,5 +1,6 @@
 # Shell history
 #########################################
+
 HISTFILE=$HOME/.bash_history      # Use same as bash, so share one history while transitioning
 HISTSIZE=1000000
 SAVEHIST=900000               # This value is smaller than HISTSIZE to allow a window for dupes.
@@ -22,13 +23,28 @@ bindkey '\e[B' down-line-or-beginning-search
 
 # Misc zsh config
 #########################################
+
 setopt NOTIFY        # Print background job status immediately. 
 setopt CASE_GLOB     # Case-sensitive globbing
 setopt GLOB_DOTS     # Do not require a leading ‘.’ in a filename to be matched explicitly.
 unsetopt AUTO_CD     # Don't "execute" directories by changing into them. Set if you want this: Type ".." instead of "cd ..", "/usr/include" instead of "cd /usr/include".
 
 
+# Key Bindings etc.
+########################################
+
 # Move between (customised) words with option-left/right.
 export WORDCHARS='*?[]~=&;!#$%^(){}'
 bindkey "\e\e[C"  forward-word
 bindkey "\e\e[D"  backward-word
+
+
+# Mimick bash behaviour while backward-deleting 'words' - meaning delete whole word *not* stopping at non-alphanumeric chars
+autoload -U select-word-style
+select-word-style shell
+
+
+# Jump to beginning or end of line
+bindkey "^A" beginning-of-line # ctrl-a
+bindkey "^E" end-of-line # ctrl-e
+

@@ -1,0 +1,5 @@
+alias vup='vagrant up'
+alias vgs='vagrant global-status'
+alias vssh='vagrant ssh'
+alias vupd='vagrant up --provider=docker --no-parallel'
+alias vupdd='vagrant up --provider=docker --no-parallel --debug 2>&1'

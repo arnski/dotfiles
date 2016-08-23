@@ -1,10 +1,15 @@
-. ~/dotfiles/general-shell-files/aliases          # shell aliases
-. ~/dotfiles/general-shell-files/aliases_git      # git aliases
-. ~/dotfiles/general-shell-files/functions        # self-defined shell functions
-. ~/dotfiles/general-shell-files/functions_git    # self-defined shell functions in git context
-. ~/dotfiles/general-shell-files/xdebug_phpstorm  # ...
-. ~/dotfiles/general-shell-files/paths            # paths like mysql path
+# Source all files with shell-agnostic code / config
+for f in ~/dotfiles/general-shell-files/*; do source $f; done
 
+# Source bash-specific code / config
 . ~/dotfiles/bash-files/functions                 # bash-specific functions
 . ~/dotfiles/bash-files/history
 . ~/dotfiles/bash-files/prompt
+
+# Source OSX- specific code / config
+if [ $(uname -s) = 'Darwin' ]; then
+  . ~/dotfiles/osx-files/functions
+  . ~/dotfiles/osx-files/env_variables
+  . ~/dotfiles/osx-files/defaults
+fi
+

@@ -1,0 +1,57 @@
+#!/bin/bash
+
+TEXTMATE_MATE_LOCATION=""
+
+osx_version(){
+  MAJOR_OSX_VERSION=$(sw_vers -productVersion | awk -F '.' '{print $1 "." $2}')
+  echo "OSX-Version: $MAJOR_OSX_VERSION"
+}
+
+# Toggle visibility of hidden files in Dock & Finder
+toggle_hidden(){
+
+  STATUS=$( defaults read com.apple.finder AppleShowAllFiles )
+  if [[ $STATUS == TRUE || $STATUS == 1 ]]; 
+  then
+    echo "Toggling invisible files to: Hide\n"
+    defaults write com.apple.finder AppleShowAllFiles -boolean false && defaults write com.apple.dock showhidden -boolean false
+  else
+    echo "Toggling invisible files to: Show\n"
+    defaults write com.apple.finder AppleShowAllFiles -boolean true && defaults write com.apple.dock showhidden -boolean true
+  fi
+  killall Finder && killall Dock
+}
+
+find_textmate(){
+
+  if [[ -e /Applications/TextMate.app/Contents/Resources/mate ]]; 
+  then
+    TEXTMATE_MATE_LOCATION="/Applications/TextMate.app/Contents/Resources/mate"
+    echo "Found Textmate: $TEXTMATE_MATE_LOCATION"
+  else
+    if [[ -e ~/Desktop/MyApps/TextMate.app/Contents/Resources/mate ]];
+    then
+      TEXTMATE_MATE_LOCATION="$HOME/Desktop/MyApps/TextMate.app/Contents/Resources/mate"
+      echo "Found Textmate: $TEXTMATE_MATE_LOCATION"
+    else
+      echo "Textmate not found! :("
+    fi
+  fi  
+}
+
+symlink_mate_utility_for_textmate(){
+
+  find_textmate
+  if [ ! -z "$TEXTMATE_MATE_LOCATION" ] && [ -e "$TEXTMATE_MATE_LOCATION" ]; 
+  then
+    if [[ -h ~/bin/mate ]]; 
+    then
+      echo "Textmate found, 'mate' shell-utility is already linked. Nice one.\n"
+    else
+      echo "Textmate found - just linked 'mate' shell-utility to $HOME/bin/mate\n"
+      ln -s $TEXTMATE_MATE_LOCATION ~/bin/mate
+    fi
+  else
+    echo "Could not link 'mate' shell-utility. Value of TEXTMATE_MATE_LOCATION: '$TEXTMATE_MATE_LOCATION'.\n"
+  fi
+}

@@ -1,8 +1,4 @@
-. ~/dotfiles/general-shell-files/aliases        # shell aliases
-. ~/dotfiles/general-shell-files/aliases_git    # git aliases
-. ~/dotfiles/general-shell-files/functions      # self-defined shell functions
-. ~/dotfiles/general-shell-files/functions_git  # self-defined shell functions in git context
-. ~/dotfiles/general-shell-files/paths          # paths, like mysql binaries etc..
+for f in ~/dotfiles/general-shell-files/*; do source $f; done
 
 . ~/dotfiles/zsh-files/functions                # zsh-specific functions
 . ~/dotfiles/zsh-files/prompt                   # prompt config
@@ -15,6 +11,7 @@ if [ $(uname -s) = 'Darwin' ]; then
   export EDITOR='vim'
   export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin"
   export MANPATH="/usr/local/share/man:/usr/X11/man:/usr/share/man"
+  . ~/dotfiles/osx-files/functions
 else
   export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 fi
