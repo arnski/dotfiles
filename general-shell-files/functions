@@ -19,3 +19,11 @@ function tree {
 function zsh_stats() {
   history 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
 }
+
+function docker-ip() {
+  boot2docker ip 2> /dev/null
+}
+
+function docker-refresh-hostname-ip() {
+  echo $(docker-ip) docker | sudo tee -a /etc/hosts
+}
