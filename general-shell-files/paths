@@ -1,6 +1,4 @@
 if [ $(uname -s) = 'Darwin' ]; then
-  export MAVEN_OPTS="-Xmx8192m -XX:MaxPermSize=4096m"
-  export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
   export PATH="/usr/local/mysql/bin:$PATH"
+  export PATH="/usr/local/sbin:$PATH"
 fi
-
