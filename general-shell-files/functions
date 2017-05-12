@@ -37,21 +37,3 @@ launchctlFind () {
     done
     return 0;
 }
-
-# Docker Stuff
-function docker-ip() {
-  boot2docker ip 2> /dev/null
-}
-
-function docker-refresh-hostname-ip() {
-  echo $(docker-ip) docker | sudo tee -a /etc/hosts
-}
-
-# Temporary Fixes for (Boot 2) Docker Logstash
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/$(whoami)/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
-docker-ip() {
-  boot2docker ip 2> /dev/null
-}
