@@ -4,6 +4,9 @@
 #export PS1="\u@\h [\w]:"
 #export PS1="\[\033]0;\w\007\]\[\]\n\[\]\u\[\] at \[\]\h\[\] in \[\]\w\n\[\]$ \[\]"
 
+# iTerm2 Shell Integration
+source ~/.iterm2_shell_integration.`basename $SHELL`
+
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
     export TERM='gnome-256color';
 elif infocmp xterm-256color >/dev/null 2>&1; then
@@ -81,16 +84,15 @@ fi;
 # Set the terminal title to the current working directory.
 PS1="\[\033]0;\w\007\]";
 PS1+="\[${bold}\]\n"; # newline
+PS1+="\[$(iterm2_prompt_mark)\]"; # iTerm2 Mark
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${white}\] at ";
 PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${white}\] in ";
 PS1+="\[${green}\]\w"; # working directory
-PS1+="\n";
+#PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
 PS2="\[${yellow}\]→ \[${reset}\]";
 export PS2;
-
-
