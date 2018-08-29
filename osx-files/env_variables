@@ -1,2 +1,9 @@
-# JAVA_HOME setzen
+# JAVA_HOME setzen (fuer CM7)
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+# export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=512m"
+
+
+# JAVA_HOME setzen (fuer CM8)
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export MAVEN_OPTS="-Xmx2048m"
+
