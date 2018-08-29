@@ -13,3 +13,5 @@ if [ $(uname -s) = 'Darwin' ]; then
   . ~/dotfiles/osx-files/defaults
 fi
 
+# Enable moving hidden .dotfiles by default
+shopt -s dotglob
