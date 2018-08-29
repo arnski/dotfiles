@@ -1,0 +1,2 @@
+alias dopss="docker ps -s|less -S"
+alias dopsa="docker ps -a|less -S"
